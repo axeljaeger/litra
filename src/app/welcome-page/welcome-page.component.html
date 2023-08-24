@@ -1,0 +1,20 @@
+<mat-card class="mat-app-background" style="margin: auto; max-width: max-content;">
+    <mat-card-header>
+      <mat-card-title>Litra PWA</mat-card-title>
+      <mat-card-subtitle>PWA to control the Logitech LitraGlow video light</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p></p>
+    </mat-card-content>
+    <mat-card-actions>
+        <a mat-icon-button aria-label="View project on GitHub" href="https://github.com/axeljaeger/litra" target="_blank">
+          <img src="assets/github-mark-white.svg" alt="GitHub" width="24" />
+        </a>
+        <button mat-flat-button extended color="primary" style="margin-left: auto" (click)="connect.next()">
+            Start
+        </button>   
+    </mat-card-actions>
+    <mat-card-footer>
+        <mat-progress-bar mode="indeterminate" *ngIf="connecting" />
+    </mat-card-footer>
+</mat-card>
