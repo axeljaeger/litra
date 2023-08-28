@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "storybook": "ng run litra:storybook",
-    "build-storybook": "ng run litra:build-storybook"
+    "build-storybook": "ng run litra:build-storybook",
+    "chromatic": "npx chromatic"
   },
   "private": true,
   "dependencies": {
@@ -38,12 +39,17 @@
     "@storybook/addon-links": "^7.3.2",
     "@storybook/angular": "^7.3.2",
     "@storybook/blocks": "^7.3.2",
+    "@storybook/manager-api": "^7.3.2",
     "@storybook/testing-library": "^0.2.0",
+    "@storybook/theming": "^7.3.2",
+    "chromatic": "^6.24.1",
     "jest": "^29.6.4",
     "jest-environment-jsdom": "^29.6.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.3.2",
     "typescript": "~5.1.6"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "litra@0.0.0"
 }

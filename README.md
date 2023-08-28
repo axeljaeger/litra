@@ -8,4 +8,5 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## CI Status
 
-- ![Unittests](https://github.com/axeljaeger/litra/actions/workflows/unittests.yml/badge.svg)
+![Unittests](https://github.com/axeljaeger/litra/actions/workflows/unittests.yml/badge.svg)
+![Chromatic](https://github.com/axeljaeger/litra/actions/workflows/chromatic.yml/badge.svg)
