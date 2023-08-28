@@ -1,13 +1,13 @@
 name: Publish to github pages
 run-name: ${{ github.actor }} is publishing to GitHub Actions 🚀
-on: [push, workflow_dispatch]
+on: [release]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Build react app
+      - name: Build Angular app
         run: | 
           npm ci
           npx ng build --base-href https://axeljaeger.github.io/litra/
