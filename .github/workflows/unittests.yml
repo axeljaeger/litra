@@ -1,3 +1,4 @@
+name: 'Unittests'
 on:
     pull_request:
     push:
