@@ -10,6 +10,9 @@ const meta: Meta<WelcomePageComponent> = {
       ...args,
     },
   }),
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export default meta;

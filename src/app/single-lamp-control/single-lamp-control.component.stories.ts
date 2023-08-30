@@ -14,6 +14,9 @@ const meta: Meta<SingleLampControlComponent> = {
       ...args,
     },
   }),
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export default meta;
