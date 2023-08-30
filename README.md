@@ -1,6 +1,8 @@
 # Litra
-![Unittests](https://github.com/axeljaeger/litra/actions/workflows/unittests.yml/badge.svg)(https://github.com/axeljaeger/litra/actions/workflows/unittests.yml)
-![Chromatic](https://github.com/axeljaeger/litra/actions/workflows/chromatic.yml/badge.svg)(https://github.com/axeljaeger/litra/actions/workflows/chromatic.yml)
+[![Unittests](https://github.com/axeljaeger/litra/actions/workflows/unittests.yml/badge.svg)](https://github.com/axeljaeger/litra/actions/workflows/unittests.yml)
+[![Chromatic](https://github.com/axeljaeger/litra/actions/workflows/chromatic.yml/badge.svg)](https://github.com/axeljaeger/litra/actions/workflows/chromatic.yml)
+
+
 Progressive Web App to control logitech Litra Glow streaming lights.
 
 ## Try it out
