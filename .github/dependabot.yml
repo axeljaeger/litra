@@ -14,3 +14,6 @@ updates:
         patterns:
             - "storybook"
             - "@storybook/*"
+      angular:
+        patterns:
+            - "@angular/*"
