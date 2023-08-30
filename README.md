@@ -1,9 +1,8 @@
 # Litra
-[![Static Badge](https://img.shields.io/badge/Go%20to%20app-gray?logo=github)](axeljaeger.github.io/litra/)
-[![Unittests](https://github.com/axeljaeger/litra/actions/workflows/unittests.yml/badge.svg)](https://github.com/axeljaeger/litra/actions/workflows/unittests.yml)
+[![Static Badge](https://img.shields.io/badge/Go%20to%20app-black?logo=github)](https://axeljaeger.github.io/litra/)
 [![Unittests](https://github.com/axeljaeger/litra/actions/workflows/unittests.yml/badge.svg)](https://github.com/axeljaeger/litra/actions/workflows/unittests.yml)
 [![Chromatic](https://github.com/axeljaeger/litra/actions/workflows/chromatic.yml/badge.svg)](https://github.com/axeljaeger/litra/actions/workflows/chromatic.yml)
-[![Storybook](https://img.shields.io/badge/storybook-26077C?logo=storybook&logoColor=%23ffffff&labelColor=%23E06A8C)](https:://main--64ecff17a1f3bdc4e2c65141.chromatic.com)
+[![Storybook](https://img.shields.io/badge/storybook-26077C?logo=storybook&logoColor=%23ffffff&labelColor=%23E06A8C)](https://main--64ecff17a1f3bdc4e2c65141.chromatic.com)
 
 
 Progressive Web App to control logitech Litra Glow streaming lights.
