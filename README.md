@@ -14,7 +14,7 @@ You can also try out the components individually in
 [Storybook](https://main--64ecff17a1f3bdc4e2c65141.chromatic.com).
 
 ## Platform support
-The technical foundation is the [WebHID API](https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API). This API is only supported on Chrome and Edge and Opera [1](https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API#browser_compatibility). The application has been successfully tested on both Mac and Windows.
+The technical foundation is the [WebHID API](https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API). This API is only supported on Chrome and Edge and Opera. The application has been successfully tested on both Mac and Windows.
 
 ## Development
 Litra is developed using Typescript, Angular and Angular Material.
