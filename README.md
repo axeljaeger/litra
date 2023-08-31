@@ -1,5 +1,7 @@
 # Litra
-Progressive Web App to control logitech Litra Glow streaming lights.
+*Progressive Web App to control logitech Litra Glow streaming lights.*
+
+
 [![Static Badge](https://img.shields.io/badge/Go%20to%20app-black?logo=github)](https://axeljaeger.github.io/litra/)
 [![Unittests](https://github.com/axeljaeger/litra/actions/workflows/unittests.yml/badge.svg)](https://github.com/axeljaeger/litra/actions/workflows/unittests.yml)
 [![Chromatic](https://github.com/axeljaeger/litra/actions/workflows/chromatic.yml/badge.svg)](https://github.com/axeljaeger/litra/actions/workflows/chromatic.yml)
