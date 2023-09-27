@@ -18,3 +18,7 @@ updates:
         patterns:
             - "@angular/*"
             - "@angular-devkit/build-angular"
+      jest:
+        patterns:
+            - "jest*"
+            - "@types/jest"
