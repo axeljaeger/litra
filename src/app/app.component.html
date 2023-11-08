@@ -1,2 +1,6 @@
-<app-welcome-page [connecting]="appState === AppState.Connecting" *ngIf="appState !== AppState.Connected" (connect)="start()"/>
-<app-single-lamp-control *ngFor="let device of devices; let i = index" [hidDevice]="device" />
+@if (appState !== AppState.Connected) {
+<app-welcome-page [connecting]="appState === AppState.Connecting" (connect)="start()"/>
+}
+@for (device of devices; track device; let i = $index) {
+  <app-single-lamp-control [hidDevice]="device" />
+}
