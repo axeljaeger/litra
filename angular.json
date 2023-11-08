@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "litra:build:production"
+              "buildTarget": "litra:build:production"
             },
             "development": {
-              "browserTarget": "litra:build:development"
+              "buildTarget": "litra:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "litra:build"
+            "buildTarget": "litra:build"
           }
         },
         "test": {
