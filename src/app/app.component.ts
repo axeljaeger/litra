@@ -3,7 +3,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { SingleLampControlComponent } from './single-lamp-control/single-lamp-control.component';
-import { NgFor, NgIf } from '@angular/common';
 
 const Logitech_VID = 0x046d;
 const LitraGlow_PID = 0xc900;
@@ -20,8 +19,6 @@ enum AppState {
   styleUrls: ['./app.component.css'],
   standalone: true,
   imports: [
-    NgIf,
-    NgFor,
     WelcomePageComponent,
     SingleLampControlComponent
   ]
