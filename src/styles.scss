@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+@use "@angular/material" as mat;
+@use "@angular/material-experimental" as matx;
+
+$m3-light-theme: matx.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: matx.$m3-red-palette,
+    ),
+    typography: (
+      brand-family: "Comic Sans",
+    ),
+    density: (
+      scale: -1,
+    ),
+  )
+);
+
+html,
+body {
+  height: 100%;
+  @include mat.all-component-themes($m3-light-theme);
+}
+body {
+  overflow: hidden;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

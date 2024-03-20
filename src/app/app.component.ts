@@ -1,6 +1,6 @@
 /// <reference types="w3c-web-hid" />
 
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { SingleLampControlComponent } from './single-lamp-control/single-lamp-control.component';
 
@@ -16,7 +16,7 @@ enum AppState {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [
     WelcomePageComponent,
@@ -24,10 +24,10 @@ enum AppState {
   ]
 })
 export class AppComponent implements OnInit {
-  public appState : AppState = AppState.Idle;
+  public appState: AppState = AppState.Idle;
   public AppState = AppState;
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   public devices: HIDDevice[] | null = null;
 
   async start() {
