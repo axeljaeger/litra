@@ -1,13 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { type Meta, type StoryObj } from '@storybook/angular';
+import { action } from '@storybook/addon-actions';
+
 import { WelcomePageComponent } from './welcome-page.component';
 
 const meta: Meta<WelcomePageComponent> = {
   title: 'Welcome Page',
   component: WelcomePageComponent,
   tags: [],
-  render: (args: WelcomePageComponent) => ({
+  render: (args) => ({
     props: {
       ...args,
+      connect: action('onConnect')
     },
   }),
   parameters: {

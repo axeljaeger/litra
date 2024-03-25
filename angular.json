@@ -17,9 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": {
-              "base": "dist/litra"
-            },
+            "outputPath":  "dist/litra",
             "index": "src/index.html",
             "polyfills": [
               "zone.js"
