@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatProgressBarModule,
   ],
   templateUrl: './welcome-page.component.html',
-  styleUrls: ['./welcome-page.component.css']
+  styleUrls: ['./welcome-page.component.scss']
 })
 export class WelcomePageComponent {
   @Input() public connecting : boolean = false;
