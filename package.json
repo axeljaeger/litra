@@ -46,7 +46,7 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "storybook": "^8.1.9",
-    "typescript": "5.4.3"
+    "typescript": "5.4.5"
   },
   "readme": "ERROR: No README data found!",
   "_id": "litra@0.0.0"
