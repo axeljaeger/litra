@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, input } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -32,9 +32,9 @@ enum LampOnOffState {
   styleUrls: ['./single-lamp-control.component.css']
 })
 export class SingleLampControlComponent implements OnInit {
-  @Input() hidDevice : HIDDevice | null = null;
-  @Input() x : number = 4;
-
+  hidDevice = input<HIDDevice | null>(null);
+  x = input(4);
+  
   brightness = new FormControl(0);
   temperature = new FormControl(2700);
 
@@ -45,7 +45,7 @@ export class SingleLampControlComponent implements OnInit {
 
   public async setOnState(on: boolean): Promise<void> {
     if (this.hidDevice) {
-      await this.hidDevice.sendReport(reportId, Uint8Array.from([
+      await this.hidDevice()?.sendReport(reportId, Uint8Array.from([
         ...onOffCommand,
         on ? LampOnOffState.LightOn : LampOnOffState.LightOff,
         0x00,
@@ -66,7 +66,7 @@ export class SingleLampControlComponent implements OnInit {
     const clampedLevel = Math.floor(
       minBrightness + (level / 100) * (maxBrightness - minBrightness)
     );
-    this.hidDevice.sendReport(reportId, Uint8Array.from([
+    this.hidDevice()?.sendReport(reportId, Uint8Array.from([
       ...brightnessCommand,
       0x00,
       clampedLevel,
@@ -88,7 +88,7 @@ export class SingleLampControlComponent implements OnInit {
     view.setInt16(0, temperature, false);
     const bytes = [view.getInt8(0), view.getInt8(1)];
 
-    this.hidDevice.sendReport(reportId, Uint8Array.from([
+    this.hidDevice()?.sendReport(reportId, Uint8Array.from([
       ...temperatureCommand,
       ...bytes,
       ...fill
