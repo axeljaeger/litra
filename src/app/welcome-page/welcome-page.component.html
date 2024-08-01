@@ -10,12 +10,12 @@
         <a mat-icon-button aria-label="View project on GitHub" href="https://github.com/axeljaeger/litra" target="_blank">
           <img src="assets/github-mark-white.svg" alt="GitHub" width="24" />
         </a>
-        <button mat-flat-button extended color="primary" style="margin-left: auto" (click)="connect.next()">
+        <button mat-flat-button extended color="primary" style="margin-left: auto" (click)="connect.emit()">
             Start
         </button>   
     </mat-card-actions>
     <mat-card-footer>
-        @if (connecting) {
+        @if (connecting()) {
 <mat-progress-bar mode="indeterminate" />
 }
     </mat-card-footer>
