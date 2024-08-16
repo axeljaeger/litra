@@ -12,12 +12,13 @@ updates:
     groups:
       storybook:
         patterns:
-            - "storybook"
             - "@storybook/*"
+            - "chromatic"
       angular:
         patterns:
             - "@angular/*"
-            - "@angular-devkit/build-angular"
+            - "@angular-devkit/*"
+            - "zone.js"
       jest:
         patterns:
             - "jest*"
