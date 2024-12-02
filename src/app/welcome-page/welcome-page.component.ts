@@ -13,8 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
         MatProgressBarModule,
     ],
     templateUrl: './welcome-page.component.html',
-    styleUrls: ['./welcome-page.component.css'],
-    standalone: true
+    styleUrls: ['./welcome-page.component.css']
 })
 export class WelcomePageComponent {
   public connecting = input(false);

@@ -28,8 +28,7 @@ enum LampOnOffState {
         ReactiveFormsModule,
     ],
     templateUrl: './single-lamp-control.component.html',
-    styleUrls: ['./single-lamp-control.component.css'],
-    standalone: true
+    styleUrls: ['./single-lamp-control.component.css']
 })
 export class SingleLampControlComponent implements OnInit {
   hidDevice = input<HIDDevice | null>(null);
