@@ -5,16 +5,16 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-welcome-page',
-  standalone: true,
-  imports: [
-    CommonModule, 
-    MatButtonModule, 
-    MatCardModule, 
-    MatProgressBarModule,
-  ],
-  templateUrl: './welcome-page.component.html',
-  styleUrls: ['./welcome-page.component.css']
+    selector: 'app-welcome-page',
+    imports: [
+        CommonModule,
+        MatButtonModule,
+        MatCardModule,
+        MatProgressBarModule,
+    ],
+    templateUrl: './welcome-page.component.html',
+    styleUrls: ['./welcome-page.component.css'],
+    standalone: true
 })
 export class WelcomePageComponent {
   public connecting = input(false);
