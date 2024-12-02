@@ -20,16 +20,15 @@ enum LampOnOffState {
 }
 
 @Component({
-  selector: 'app-single-lamp-control',
-  standalone: true,
-  imports: [
-    MatExpansionModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './single-lamp-control.component.html',
-  styleUrls: ['./single-lamp-control.component.css']
+    selector: 'app-single-lamp-control',
+    imports: [
+        MatExpansionModule,
+        MatSliderModule,
+        MatSlideToggleModule,
+        ReactiveFormsModule,
+    ],
+    templateUrl: './single-lamp-control.component.html',
+    styleUrls: ['./single-lamp-control.component.css']
 })
 export class SingleLampControlComponent implements OnInit {
   hidDevice = input<HIDDevice | null>(null);

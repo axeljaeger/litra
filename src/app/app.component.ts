@@ -14,14 +14,13 @@ enum AppState {
 }
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  standalone: true,
-  imports: [
-    WelcomePageComponent,
-    SingleLampControlComponent
-  ]
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    imports: [
+        WelcomePageComponent,
+        SingleLampControlComponent
+    ]
 })
 export class AppComponent implements OnInit {
   public appState : AppState = AppState.Idle;
