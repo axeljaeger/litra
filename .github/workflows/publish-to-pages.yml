@@ -1,4 +1,4 @@
-name: Publish to github pages
+name: Publish to Cloudflare Pages
 run-name: ${{ github.actor }} is publishing to Cloudflare Pages 🚀
 on: [release, workflow_dispatch]
 
@@ -11,10 +11,10 @@ jobs:
       - name: Build Angular app
         run: | 
           npm ci
-          npx ng build --base-href https://axeljaeger.github.io/litra/
+          npx ng build --base-href https://litra.pages.dev/
       - name: Upload to Cloudflare
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/litra --project-name=litra
+          command: pages deploy dist/litra/browser --project-name=litra
