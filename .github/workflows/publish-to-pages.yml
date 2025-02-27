@@ -1,17 +1,28 @@
 name: Publish to github pages
-run-name: ${{ github.actor }} is publishing to GitHub Actions 🚀
+run-name: ${{ github.actor }} is publishing to Cloudflare Pages 🚀
 on: [release, workflow_dispatch]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    name: Deploy
     steps:
-      - uses: actions/checkout@v4
-      - name: Deploy
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Build Angular app
+        run: | 
+          npm ci
+          npx ng build --base-href https://axeljaeger.github.io/litra/
+      - name: Fix permissions
+        run: |
+          chmod -c -R +rX "_site/" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
+      - name: Upload to Cloudflare
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          acountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist/litra --project-name=litra
 
 
   # deploy:
