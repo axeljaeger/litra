@@ -1,7 +1,8 @@
 name: Publish to Cloudflare Pages
 run-name: ${{ github.actor }} is publishing to Cloudflare Pages 🚀
-on: [release, workflow_dispatch]
-
+on: 
+  release:
+    types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
