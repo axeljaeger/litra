@@ -8,9 +8,18 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Build Angular app
-        run: | 
+      - name: Install dependencies
+        run: |
           npm ci
+      - name: Set version number
+        run: |
+          RAW_TAG="${{ github.event.release.tag_name }}"
+          CLEAN_TAG="${RAW_TAG#v}"
+          echo "VERSION=$CLEAN_TAG" >> $GITHUB_ENV
+          npm version $VERSION --git-tag-version=false
+
+      - name: Build Angular app
+        run: |
           npx ng build --base-href https://litra.pages.dev/
       - name: Upload to Cloudflare
         uses: cloudflare/wrangler-action@v3
