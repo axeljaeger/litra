@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
+import { version } from '../../../package.json';
 
 @Component({
     selector: 'app-welcome-page',
@@ -18,4 +19,5 @@ import { MatButtonModule } from '@angular/material/button';
 export class WelcomePageComponent {
   public connecting = input(false);
   public connect = output<void>();
+  public version = version;
 }

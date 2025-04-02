@@ -7,8 +7,9 @@
       <p></p>
     </mat-card-content>
     <mat-card-actions>
-        <a mat-icon-button aria-label="View project on GitHub" href="https://github.com/axeljaeger/litra" target="_blank">
-          <img src="assets/github-mark-white.svg" alt="GitHub" width="24" />
+        <a href="https://github.com/axeljaeger/litra" target="_blank" style="display: flex; align-items: center">
+            <img src="assets/github-mark-white.svg" alt="GitHub" width="16" style="margin-right: 4px;" />
+           {{ version }}
         </a>
         <button mat-flat-button extended color="primary" style="margin-left: auto" (click)="connect.emit()">
             Start
