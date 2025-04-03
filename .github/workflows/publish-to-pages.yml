@@ -17,6 +17,7 @@ jobs:
           RAW_TAG="${{ github.event.release.tag_name }}"
           CLEAN_TAG="${RAW_TAG#v}"
           echo "VERSION=$CLEAN_TAG" >> $GITHUB_ENV
+          echo $VERSION
           npm version $VERSION --git-tag-version=false
 
       - name: Build Angular app
