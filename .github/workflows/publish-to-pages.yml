@@ -17,9 +17,8 @@ jobs:
           set -x
           RAW_TAG="${{ github.event.release.tag_name }}"
           CLEAN_TAG="${RAW_TAG#v}"
-          echo "VERSION=$CLEAN_TAG" >> $GITHUB_ENV
-          echo $CLEAN_TAG
-          npm version $VERSION --git-tag-version=false
+          echo "Set version to $CLEAN_TAG"
+          npm version $CLEAN_TAG --git-tag-version=false
 
       - name: Build Angular app
         run: |
