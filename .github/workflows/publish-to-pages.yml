@@ -14,10 +14,11 @@ jobs:
           npm ci
       - name: Set version number
         run: |
+          set -x
           RAW_TAG="${{ github.event.release.tag_name }}"
           CLEAN_TAG="${RAW_TAG#v}"
           echo "VERSION=$CLEAN_TAG" >> $GITHUB_ENV
-          echo $VERSION
+          echo $CLEAN_TAG
           npm version $VERSION --git-tag-version=false
 
       - name: Build Angular app
