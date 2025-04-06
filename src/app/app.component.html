@@ -1,6 +1,10 @@
-@if (appState !== AppState.Connected) {
-<app-welcome-page [connecting]="appState === AppState.Connecting" (connect)="start()"/>
-}
-@for (device of devices; track device; let i = $index) {
-  <app-single-lamp-control [hidDevice]="device" />
+@switch (appState()) {
+  @case (AppState.Connected) {
+    @for (device of devices; track device; let i = $index) {
+      <app-single-lamp-control [hidDevice]="device" />
+    }  
+  }
+  @default {
+    <app-welcome-page [connecting]="appState() === AppState.Connecting" (connect)="start()"/>
+  }
 }

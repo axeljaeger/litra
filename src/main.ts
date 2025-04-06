@@ -2,11 +2,12 @@ import { AppComponent } from './app/app.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideServiceWorker } from '@angular/service-worker';
-import { isDevMode } from '@angular/core';
+import { isDevMode, provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 
 bootstrapApplication(AppComponent, {
     providers: [
+    provideExperimentalZonelessChangeDetection(),
     provideAnimations(),
     provideServiceWorker('ngsw-worker.js', {
         enabled: !isDevMode(),
