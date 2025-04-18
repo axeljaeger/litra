@@ -19,7 +19,6 @@ updates:
         patterns:
             - "@angular/*"
             - "@angular-devkit/*"
-            - "zone.js"
       jest:
         patterns:
             - "jest*"
