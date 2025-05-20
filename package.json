@@ -9,7 +9,9 @@
     "test": "ng test",
     "storybook": "ng run litra:storybook",
     "build-storybook": "ng run litra:build-storybook",
-    "chromatic": "npx chromatic"
+    "chromatic": "npx chromatic",
+    "size": "ng build --stats-json",
+    "display": "npx esbuild-visualizer --metadata=dist/litra/stats.json --open=true"
   },
   "private": true,
   "dependencies": {
@@ -21,8 +23,6 @@
     "@angular/forms": "19.2.9",
     "@angular/material": "19.2.14",
     "@angular/platform-browser": "19.2.9",
-    "@angular/platform-browser-dynamic": "19.2.9",
-    "@angular/router": "19.2.9",
     "@angular/service-worker": "19.2.9",
     "@storybook/test": "^8.6.12",
     "@types/jest": "^29.5.14",
