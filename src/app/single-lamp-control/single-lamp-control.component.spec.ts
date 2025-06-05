@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SingleLampControlComponent } from './single-lamp-control.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('SingleLampControlComponent', () => {
   let component: SingleLampControlComponent;
@@ -9,7 +8,7 @@ describe('SingleLampControlComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [SingleLampControlComponent, NoopAnimationsModule]
+      imports: [SingleLampControlComponent]
     });
     fixture = TestBed.createComponent(SingleLampControlComponent);
     component = fixture.componentInstance;

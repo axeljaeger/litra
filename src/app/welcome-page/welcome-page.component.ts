@@ -13,7 +13,7 @@ import { version } from '../../../package.json';
     MatProgressBarModule
 ],
     templateUrl: './welcome-page.component.html',
-    styleUrls: ['./welcome-page.component.css']
+    styleUrls: ['./welcome-page.component.scss']
 })
 export class WelcomePageComponent {
   public connecting = input(false);
