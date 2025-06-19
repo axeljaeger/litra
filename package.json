@@ -35,7 +35,7 @@
     "@storybook/addon-docs": "^9.0.12",
     "@storybook/addon-links": "^9.0.12",
     "@storybook/angular": "^9.0.12",
-    "chromatic": "^13.0.0",
+    "chromatic": "^13.0.1",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "storybook": "^9.0.12",
