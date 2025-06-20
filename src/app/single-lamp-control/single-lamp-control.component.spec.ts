@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SingleLampControlComponent } from './single-lamp-control.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('SingleLampControlComponent', () => {
   let component: SingleLampControlComponent;
@@ -8,7 +9,8 @@ describe('SingleLampControlComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [SingleLampControlComponent]
+      imports: [SingleLampControlComponent],
+      providers: [provideZonelessChangeDetection()]
     });
     fixture = TestBed.createComponent(SingleLampControlComponent);
     component = fixture.componentInstance;

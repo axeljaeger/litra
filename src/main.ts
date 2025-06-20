@@ -1,16 +1,6 @@
 import { AppComponent } from './app/app.component';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideServiceWorker } from '@angular/service-worker';
-import { isDevMode, provideZonelessChangeDetection } from '@angular/core';
+import { appConfig } from './app/app.config';
 
-
-bootstrapApplication(AppComponent, {
-    providers: [
-    provideZonelessChangeDetection(),
-    provideServiceWorker('ngsw-worker.js', {
-        enabled: !isDevMode(),
-        registrationStrategy: 'registerWhenStable:30000'
-    })
-]
-})
+bootstrapApplication(AppComponent, appConfig)
   .catch(err => console.error(err));
