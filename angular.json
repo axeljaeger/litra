@@ -87,7 +87,8 @@
 						"port": 6006,
 						"styles": [
 							"src/styles.scss"
-						]
+						],
+						"experimentalZoneless": true
 					}
 				},
 				"build-storybook": {
@@ -96,7 +97,11 @@
 						"configDir": ".storybook",
 						"browserTarget": "litra:build",
 						"compodoc": false,
-						"outputDir": "storybook-static"
+						"outputDir": "storybook-static",
+						"styles": [
+							"src/styles.scss"
+						],
+						"experimentalZoneless": true
 					}
 				}
 			},
