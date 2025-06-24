@@ -1,24 +1,24 @@
-<div style="margin: auto; max-width: max-content;">
-    <mat-expansion-panel hideToggle expanded="true">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            LitraGlow
-          </mat-panel-title>
-          <mat-panel-description>
-            {{ brightness.value }}%, T: {{temperature.value}}K
-          </mat-panel-description>
-          <mat-slide-toggle (change)="setOnState($event.checked)" (click)="$event.stopPropagation()">On</mat-slide-toggle>
-        </mat-expansion-panel-header>
-        Brightness:
-        <mat-slider min="1" max="100">
-            <input matSliderThumb [formControl]="brightness">
-          </mat-slider>
-         {{ brightness.value }}%
-        <br>
-        Temperature:
-        <mat-slider min="2700" max="6500" step="100">
-            <input matSliderThumb [formControl]="temperature">
-        </mat-slider>
-        {{ temperature.value }}K
-    </mat-expansion-panel>
-</div>
+<mat-expansion-panel hideToggle expanded="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        LitraGlow
+      </mat-panel-title>
+      <mat-panel-description>
+        <span class="brightnessLabel">{{ brightness.value }}%</span>, T: {{temperature.value}}K
+      </mat-panel-description>
+      <mat-slide-toggle (change)="setOnState($event.checked)" (click)="$event.stopPropagation()" [disableRipple]="true" />
+    </mat-expansion-panel-header>
+    <div class="form">
+    <span class="label">Brightness:</span>
+    <mat-slider min="1" max="100">
+        <input matSliderThumb [formControl]="brightness">
+      </mat-slider>
+      <span class="brightnessLabel">{{ brightness.value }}%</span>
+
+    <span class="label">Temperature:</span>
+    <mat-slider min="2700" max="6500" step="100">
+        <input matSliderThumb [formControl]="temperature">
+    </mat-slider>
+    <span class="label">{{ temperature.value }}K</span>
+  </div>
+</mat-expansion-panel>

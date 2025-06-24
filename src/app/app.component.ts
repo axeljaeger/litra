@@ -4,14 +4,12 @@ import { Component, OnInit, signal } from '@angular/core';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { SingleLampControlComponent } from './single-lamp-control/single-lamp-control.component';
 
+import { version } from '../../package.json';
+
 const Logitech_VID = 0x046d;
 const LitraGlow_PID = 0xc900;
 
-enum AppState {
-  Idle,
-  Connecting,
-  Connected,
-}
+export type AppState = 'HidNotSupported' | 'Idle' | 'Connecting' | 'Connected';
 
 @Component({
     selector: 'app-root',
@@ -23,21 +21,25 @@ enum AppState {
     ]
 })
 export class AppComponent implements OnInit {
-  public appState = signal<AppState>(AppState.Idle);
-  public AppState = AppState;
-
-  ngOnInit(): void {}
+  public appState = signal<AppState>('Idle');
+  public version = version;
+  
+  ngOnInit(): void {
+    if (!navigator.hid) {
+      this.appState.set('HidNotSupported');
+    }
+  }
   public devices: HIDDevice[] | null = null;
 
   async start() {
-    this.appState.set(AppState.Connecting);
+    this.appState.set('Connecting');
     navigator.hid.addEventListener("disconnect", ({ device }) => {
       if (this.devices) {
         const deviceIndex = this.devices.indexOf(device);
         if (deviceIndex > -1) {
           this.devices?.splice(deviceIndex, 1);
           if (this.devices.length === 0) {
-            this.appState.set(AppState.Idle);
+            this.appState.set('Idle');
           }
         }
       }
@@ -50,10 +52,10 @@ export class AppComponent implements OnInit {
       }]
     });
     if (this.devices.length > 0) {
-      this.appState.set(AppState.Connected);
+      this.appState.set('Connected');
       this.devices.forEach(async device => await device.open());
     } else {
-      this.appState.set(AppState.Idle);
+      this.appState.set('Idle');
     }
   }
 }

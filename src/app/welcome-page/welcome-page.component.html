@@ -7,17 +7,15 @@
       <p></p>
     </mat-card-content>
     <mat-card-actions>
-        <a href="https://github.com/axeljaeger/litra" target="_blank" style="display: flex; align-items: center">
-            <img src="assets/github-mark-white.svg" alt="GitHub" width="16" style="margin-right: 4px;" />
-           {{ version }}
-        </a>
-        <button mat-flat-button extended color="primary" style="margin-left: auto" (click)="connect.emit()">
+        <button [disabled]="state() === 'HidNotSupported'" type="button" matButton="tonal" (click)="connect.emit()" style="margin: auto">
             Start
         </button>
     </mat-card-actions>
     <mat-card-footer>
-        @if (connecting()) {
-<mat-progress-bar mode="indeterminate" />
-}
+    @if (state() === 'Connecting') {
+        <mat-progress-bar mode="indeterminate" />
+    } @else if (state() === 'HidNotSupported') {
+        <div class="error">Your browser does not support the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API" target="_blank" rel="noopener noreferrer">WebHID API</a>.</div>
+    }
     </mat-card-footer>
 </mat-card>

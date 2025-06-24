@@ -1,10 +1,18 @@
 @switch (appState()) {
-  @case (AppState.Connected) {
+  @case ('Connected') {
     @for (device of devices; track device; let i = $index) {
       <app-single-lamp-control [hidDevice]="device" />
     }  
   }
   @default {
-    <app-welcome-page [connecting]="appState() === AppState.Connecting" (connect)="start()"/>
+    <app-welcome-page [state]="appState()" (connect)="start()"/>
   }
 }
+<a href="https://github.com/axeljaeger/litra" class="github-link" target="_blank" rel="noreferrer noopener">
+  <picture>
+    <source srcset="assets/github-mark-white.svg" media="(prefers-color-scheme: dark)">
+    <source srcset="assets/github-mark.svg" media="(prefers-color-scheme: light)">
+    <img src="assets/github-mark-white.svg" alt="GitHub" width="16" />  
+  </picture>  
+    {{ version }}
+</a>

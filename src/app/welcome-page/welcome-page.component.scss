@@ -1,4 +1,10 @@
-a, a:visited, a:active, a:focus {
-  color: white;
-  text-decoration: none;
+div.error {
+  font: var(--mat-sys-body-large);
+  background-color: var(--mat-sys-error-container);
+  color: var(--mat-sys-on-error-container);
+  padding: 1ex;
+}
+
+mat-card {
+  overflow: hidden;
 }

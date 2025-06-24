@@ -1,0 +1,17 @@
+.github-link {
+  display: flex; 
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+  padding: 4px;
+}
+
+a, a:visited, a:active, a:focus {
+  color: var(--mat-expansion-header-description-color, var(--mat-sys-on-surface-variant));
+  font: var(--mat-sys-body-medium);
+  text-decoration: none;
+}
+
+picture {
+  display: contents;
+}

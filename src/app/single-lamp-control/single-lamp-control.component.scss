@@ -1,0 +1,27 @@
+:host {
+    margin: auto; 
+    max-width: max-content;
+    font-variant-numeric: tabular-nums;
+}
+
+.minWidth {
+    min-width: 16ex;
+}
+
+div.form {
+    display: grid;
+    grid-template-columns: min-content 1fr min-content;
+    align-items: center;
+    justify-items: stretch;
+    gap: 1ex;
+}
+
+span.label {
+    text-align: right;
+}
+
+span.brightnessLabel {
+    width: 5ch;
+    display: inline-block;
+    text-align: right;
+}

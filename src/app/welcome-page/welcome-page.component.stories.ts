@@ -23,12 +23,18 @@ type Story = StoryObj<WelcomePageComponent>;
 
 export const Idle: Story = {
   args: {
-    connecting: false
+    state: 'Idle'
   },
 };
 
 export const Connecting: Story = {
   args: {
-    connecting: true
+    state: 'Connecting'
+  },
+};
+
+export const HidNotSupported: Story = {
+  args: {
+    state: 'HidNotSupported',
   },
 };

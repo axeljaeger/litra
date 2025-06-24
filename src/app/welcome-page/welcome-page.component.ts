@@ -3,7 +3,7 @@ import { Component, input, output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
-import { version } from '../../../package.json';
+import { AppState } from '../app.component';
 
 @Component({
     selector: 'app-welcome-page',
@@ -16,7 +16,7 @@ import { version } from '../../../package.json';
     styleUrls: ['./welcome-page.component.scss']
 })
 export class WelcomePageComponent {
-  public connecting = input(false);
+  public state = input<AppState>('Idle');
+  public unsupported = input(false);
   public connect = output<void>();
-  public version = version;
 }
