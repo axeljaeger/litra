@@ -37,7 +37,7 @@
     "@storybook/addon-links": "^10.0.8",
     "@storybook/angular": "^10.0.8",
     "chromatic": "^13.3.4",
-    "jsdom": "^27.0.1",
+    "jsdom": "^27.2.0",
     "storybook": "^10.0.8",
     "typescript": "^5.9.3",
     "vitest": "^3.2.3"
