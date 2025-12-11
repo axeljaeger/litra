@@ -4,9 +4,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
-const onOffCommand: [number, number, number] = [0xff, 0x04, 0x1c];
-const brightnessCommand: [number, number, number]= [0xff, 0x04, 0x4c];
-const temperatureCommand: [number, number, number] = [0xff, 0x04, 0x9c];
+const onOffCommand = [0xff, 0x04, 0x1c] as const;
+const brightnessCommand = [0xff, 0x04, 0x4c] as const;
+const temperatureCommand = [0xff, 0x04, 0x9c] as const;
 
 const reportId = 0x11;
 const fill = new Array<number>(14).fill(0x00, 0, 14);
@@ -58,7 +58,7 @@ export class SingleLampControlComponent implements OnInit {
 
   public async setTemperature(temperature: number): Promise<void> {
     if (temperature < 2700 || temperature > 6500) {
-      throw new Error("Invalid brightness specified. Must be between 1 and 100.");
+      throw new Error("Invalid temperature specified. Must be between 2700 and 6500.");
     }
 
     const arr = new ArrayBuffer(2);
@@ -68,8 +68,7 @@ export class SingleLampControlComponent implements OnInit {
     await this.sendCommand(temperatureCommand, bytes);
   }
 
-  private async sendCommand(command: [number,number,number], args: [number, number]): Promise<void> {
-    
+  private async sendCommand(command: readonly[number, number, number], args: [number, number]): Promise<void> {
     await this.hidDevice().sendReport(reportId, Uint8Array.from([
       ...command,
       ...args,

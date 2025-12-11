@@ -47,9 +47,9 @@ export class AppComponent {
     });
     if (this.devices.length > 0) {
       this.appState.set('Connected');
-
-      // replace with for-of loop
-      this.devices.forEach(async device => await device.open());
+      for (const device of this.devices) {
+        await device.open();
+      }
     } else {
       this.appState.set('Idle');
     }
