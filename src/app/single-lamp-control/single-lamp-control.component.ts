@@ -4,15 +4,15 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
-const onOffCommand = [0xff, 0x04, 0x1c];
-const brightnessCommand = [0xff, 0x04, 0x4c];
-const temperatureCommand = [0xff, 0x04, 0x9c];
+const onOffCommand = [0xff, 0x04, 0x1c] as const;
+const brightnessCommand = [0xff, 0x04, 0x4c] as const;
+const temperatureCommand = [0xff, 0x04, 0x9c] as const;
 
 const reportId = 0x11;
 const fill = new Array<number>(14).fill(0x00, 0, 14);
 
-export const minBrightness = 0x14;
-export const maxBrightness = 0xfa;
+const minBrightness = 0x14;
+const maxBrightness = 0xfa;
 
 enum LampOnOffState {
   LightOff = 0x00,
@@ -31,65 +31,47 @@ enum LampOnOffState {
     styleUrls: ['./single-lamp-control.component.scss']
 })
 export class SingleLampControlComponent implements OnInit {
-  hidDevice = input<HIDDevice | null>(null);
-  x = input(4);
-  
+  hidDevice = input.required<HIDDevice>();  
   brightness = new FormControl(0);
   temperature = new FormControl(2700);
 
   ngOnInit(): void {
-    this.brightness.valueChanges.subscribe(val => this.setBrightness(val));
-    this.temperature.valueChanges.subscribe(val => this.setTemperature(val));    
+    this.brightness.valueChanges.subscribe(val => val !== null && this.setBrightness(val));
+    this.temperature.valueChanges.subscribe(val => val !== null && this.setTemperature(val));    
   }
 
   public async setOnState(on: boolean): Promise<void> {
-    if (this.hidDevice) {
-      await this.hidDevice()?.sendReport(reportId, Uint8Array.from([
-        ...onOffCommand,
-        on ? LampOnOffState.LightOn : LampOnOffState.LightOff,
-        0x00,
-        ...fill
-      ]));
-    }
+    await this.sendCommand(onOffCommand, [on ? LampOnOffState.LightOn : LampOnOffState.LightOff, 0x00]);
   }
 
-  public setBrightness(level: any) {
+  public async setBrightness(level: number): Promise<void> {
     if (level < 1 || level > 100) {
       throw new Error("Invalid brightness specified. Must be between 1 and 100.");
-    }
-
-    if (!this.hidDevice) {
-      return;
     }
 
     const clampedLevel = Math.floor(
       minBrightness + (level / 100) * (maxBrightness - minBrightness)
     );
-    this.hidDevice()?.sendReport(reportId, Uint8Array.from([
-      ...brightnessCommand,
-      0x00,
-      clampedLevel,
-      ...fill
-    ]));
+
+    await this.sendCommand(brightnessCommand, [0x00, clampedLevel]);
   }
 
-  public setTemperature(temperature: any) {
+  public async setTemperature(temperature: number): Promise<void> {
     if (temperature < 2700 || temperature > 6500) {
-      throw new Error("Invalid brightness specified. Must be between 1 and 100.");
-    }
-
-    if (!this.hidDevice) {
-      return;
+      throw new Error("Invalid temperature specified. Must be between 2700 and 6500.");
     }
 
     const arr = new ArrayBuffer(2);
     const view = new DataView(arr);
     view.setInt16(0, temperature, false);
-    const bytes = [view.getInt8(0), view.getInt8(1)];
+    const bytes = [view.getInt8(0), view.getInt8(1)] as [number, number];
+    await this.sendCommand(temperatureCommand, bytes);
+  }
 
-    this.hidDevice()?.sendReport(reportId, Uint8Array.from([
-      ...temperatureCommand,
-      ...bytes,
+  private async sendCommand(command: readonly[number, number, number], args: [number, number]): Promise<void> {
+    await this.hidDevice().sendReport(reportId, Uint8Array.from([
+      ...command,
+      ...args,
       ...fill
     ]));
   }

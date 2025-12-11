@@ -1,4 +1,4 @@
-<mat-card class="mat-app-background" style="margin: auto; max-width: max-content;">
+<mat-card>
     <mat-card-header>
       <mat-card-title>Litra PWA</mat-card-title>
       <mat-card-subtitle>PWA to control the Logitech LitraGlow video light</mat-card-subtitle>
@@ -7,15 +7,18 @@
       <p></p>
     </mat-card-content>
     <mat-card-actions>
-        <button [disabled]="state() === 'HidNotSupported'" type="button" matButton="tonal" (click)="connect.emit()" style="margin: auto">
+        <button [disabled]="state() === 'HidNotSupported'" type="button" matButton="tonal" (click)="connect.emit()">
             Start
         </button>
     </mat-card-actions>
     <mat-card-footer>
-    @if (state() === 'Connecting') {
-        <mat-progress-bar mode="indeterminate" />
-    } @else if (state() === 'HidNotSupported') {
-        <div class="error">Your browser does not support the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API" target="_blank" rel="noopener noreferrer">WebHID API</a>.</div>
+    @switch (state()) {
+        @case('Connecting') {
+            <mat-progress-bar mode="indeterminate" />
+        }
+        @case('HidNotSupported') {
+            <div class="error">Your browser does not support the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API" target="_blank" rel="noopener noreferrer">WebHID API</a>.</div>
+        }
     }
     </mat-card-footer>
 </mat-card>
