@@ -4,10 +4,6 @@
     font-variant-numeric: tabular-nums;
 }
 
-.minWidth {
-    min-width: 16ex;
-}
-
 div.form {
     display: grid;
     grid-template-columns: min-content 1fr min-content;
@@ -16,12 +12,11 @@ div.form {
     gap: 1ex;
 }
 
-span.label {
+span.label, span.brightnessLabel {
     text-align: right;
 }
 
 span.brightnessLabel {
     width: 5ch;
     display: inline-block;
-    text-align: right;
 }

@@ -1,15 +1,6 @@
 @use '@angular/material' as mat;
 @import '@fontsource/inter/index.css';
 
-html {
-  color-scheme: light dark;
-  @include mat.theme((
-    color: mat.$violet-palette,
-    typography: Inter,
-    density: 0
-  ));
-}
-
 :root {
   @include mat.expansion-overrides((
     container-background-color: var(--mat-sys-surface-container-low),
@@ -19,10 +10,25 @@ html {
   ));
 }
 
+html, body { height: 100% }
+
+html {
+  color-scheme: light dark;
+  @include mat.theme((
+    color: mat.$violet-palette,
+    typography: Inter,
+    density: 0
+  ));
+}
+
 body {
   background: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   overflow: hidden;
 }
 
-html, body { height: 100% }
+a, a:visited, a:active, a:focus {
+  color: var(--mat-expansion-header-description-color, var(--mat-sys-on-surface-variant));
+  font: var(--mat-sys-body-medium);
+  text-decoration: none;
+}

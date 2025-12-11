@@ -1,6 +1,6 @@
 /// <reference types="w3c-web-hid" />
 
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { SingleLampControlComponent } from './single-lamp-control/single-lamp-control.component';
 
@@ -20,16 +20,10 @@ export type AppState = 'HidNotSupported' | 'Idle' | 'Connecting' | 'Connected';
         SingleLampControlComponent
     ]
 })
-export class AppComponent implements OnInit {
-  public appState = signal<AppState>('Idle');
-  public version = version;
-  
-  ngOnInit(): void {
-    if (!navigator.hid) {
-      this.appState.set('HidNotSupported');
-    }
-  }
-  public devices: HIDDevice[] | null = null;
+export class AppComponent {
+  protected appState = signal<AppState>(navigator.hid ? 'Idle' : 'HidNotSupported');
+  protected version = version;
+  protected devices: HIDDevice[] | null = null;
 
   async start() {
     this.appState.set('Connecting');
@@ -53,6 +47,8 @@ export class AppComponent implements OnInit {
     });
     if (this.devices.length > 0) {
       this.appState.set('Connected');
+
+      // replace with for-of loop
       this.devices.forEach(async device => await device.open());
     } else {
       this.appState.set('Idle');
