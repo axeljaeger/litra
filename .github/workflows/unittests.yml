@@ -13,7 +13,7 @@ jobs:
         node-version: 24
         cache: 'npm'
     - run: npm ci                   # install packages
-    - run: npm test:ci                # run tests (configured to use jest-junit reporter)
+    - run: npm run test:ci          # run tests (configured to use jest-junit reporter)
 
     - name: Test Report
       uses: dorny/test-reporter@v1
