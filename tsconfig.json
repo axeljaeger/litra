@@ -18,13 +18,10 @@
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022",
+    "module": "preserve",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable", "ESNext.Disposable"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

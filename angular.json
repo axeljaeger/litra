@@ -10,10 +10,8 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-angular:application",
+					"builder": "@angular/build:application",
 					"options": {
-						"outputPath": "dist/litra",
-						"index": "src/index.html",
 						"tsConfig": "tsconfig.app.json",
 						"assets": [
 							"src/favicon.ico",
@@ -71,12 +69,7 @@
 					}
 				},
 				"test": {
-					"builder": "@angular/build:unit-test",
-					"options": {
-						"tsConfig": "tsconfig.spec.json",
-						"buildTarget": "::development",
-						"runner": "vitest"
-					}
+				    "builder": "@angular/build:unit-test"
 				},
 				"storybook": {
 					"builder": "@storybook/angular:start-storybook",
@@ -104,38 +97,7 @@
 						"experimentalZoneless": true
 					}
 				}
-			},
-			"schematics": {
-				"@schematics/angular:component": {
-					"style": "scss"
-				}
 			}
-		}
-	},
-	"schematics": {
-		"@schematics/angular:component": {
-			"type": "component"
-		},
-		"@schematics/angular:directive": {
-			"type": "directive"
-		},
-		"@schematics/angular:service": {
-			"type": "service"
-		},
-		"@schematics/angular:guard": {
-			"typeSeparator": "."
-		},
-		"@schematics/angular:interceptor": {
-			"typeSeparator": "."
-		},
-		"@schematics/angular:module": {
-			"typeSeparator": "."
-		},
-		"@schematics/angular:pipe": {
-			"typeSeparator": "."
-		},
-		"@schematics/angular:resolver": {
-			"typeSeparator": "."
 		}
 	}
 }
