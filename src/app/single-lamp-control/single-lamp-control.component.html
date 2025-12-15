@@ -6,7 +6,7 @@
       <mat-panel-description>
         <span class="brightnessLabel">{{ brightness() }}%</span>, T: {{ temperature() }}K
       </mat-panel-description>
-      <mat-slide-toggle (change)="setOnState($event.checked)" (click)="$event.stopPropagation()" [disableRipple]="true" />
+      <mat-slide-toggle [field]="onField" (click)="$event.stopPropagation()" [disableRipple]="true" />
     </mat-expansion-panel-header>
     <div class="form">
     <span class="label">Brightness:</span>
