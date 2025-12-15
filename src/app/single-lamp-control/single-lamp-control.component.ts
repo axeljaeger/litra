@@ -34,7 +34,7 @@ export class SingleLampControlComponent {
   hidDevice = input.required<HIDDevice>();  
 
   on = signal<boolean>(false);
-  brightness = signal<number>(50)
+  brightness = signal<number>(50);
   temperature = signal<number>(2700);
 
   onField = form(this.on);
