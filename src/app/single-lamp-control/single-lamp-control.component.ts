@@ -1,8 +1,8 @@
-import { Component, OnInit, input } from '@angular/core';
+import { Component, effect, input, signal } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import {form, Field} from '@angular/forms/signals';
 
 const onOffCommand = [0xff, 0x04, 0x1c] as const;
 const brightnessCommand = [0xff, 0x04, 0x4c] as const;
@@ -25,20 +25,25 @@ enum LampOnOffState {
         MatExpansionModule,
         MatSliderModule,
         MatSlideToggleModule,
-        ReactiveFormsModule,
+        Field,
     ],
     templateUrl: './single-lamp-control.component.html',
     styleUrls: ['./single-lamp-control.component.scss']
 })
-export class SingleLampControlComponent implements OnInit {
+export class SingleLampControlComponent {
   hidDevice = input.required<HIDDevice>();  
-  brightness = new FormControl(0);
-  temperature = new FormControl(2700);
 
-  ngOnInit(): void {
-    this.brightness.valueChanges.subscribe(val => val !== null && this.setBrightness(val));
-    this.temperature.valueChanges.subscribe(val => val !== null && this.setTemperature(val));    
-  }
+  on = signal<boolean>(false);
+  brightness = signal<number>(50);
+  temperature = signal<number>(2700);
+
+  onField = form(this.on);
+  brightnessField = form(this.brightness);
+  temperatureField = form(this.temperature);
+
+  updateOn = effect(() => this.setOnState(this.on()));
+  updateBrightness = effect(() => this.setBrightness(this.brightness()));
+  updateTemperature = effect(() => this.setTemperature(this.temperature()));
 
   public async setOnState(on: boolean): Promise<void> {
     await this.sendCommand(onOffCommand, [on ? LampOnOffState.LightOn : LampOnOffState.LightOff, 0x00]);

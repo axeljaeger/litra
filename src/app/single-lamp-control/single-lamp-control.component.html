@@ -4,21 +4,21 @@
         LitraGlow
       </mat-panel-title>
       <mat-panel-description>
-        <span class="brightnessLabel">{{ brightness.value }}%</span>, T: {{temperature.value}}K
+        <span class="brightnessLabel">{{ brightness() }}%</span>, T: {{ temperature() }}K
       </mat-panel-description>
-      <mat-slide-toggle (change)="setOnState($event.checked)" (click)="$event.stopPropagation()" [disableRipple]="true" />
+      <mat-slide-toggle [field]="onField" (click)="$event.stopPropagation()" [disableRipple]="true" />
     </mat-expansion-panel-header>
     <div class="form">
     <span class="label">Brightness:</span>
     <mat-slider min="1" max="100">
-        <input matSliderThumb [formControl]="brightness">
+        <input matSliderThumb [field]="brightnessField">
       </mat-slider>
-      <span class="brightnessLabel">{{ brightness.value }}%</span>
+      <span class="brightnessLabel">{{ brightness() }}%</span>
 
     <span class="label">Temperature:</span>
     <mat-slider min="2700" max="6500" step="100">
-        <input matSliderThumb [formControl]="temperature">
+        <input matSliderThumb [field]="temperatureField">
     </mat-slider>
-    <span class="label">{{ temperature.value }}K</span>
+    <span class="label">{{ temperature() }}K</span>
   </div>
 </mat-expansion-panel>
