@@ -16,6 +16,12 @@ describe('SingleLampControlComponent', () => {
     });
     fixture = TestBed.createComponent(SingleLampControlComponent);
     component = fixture.componentInstance;
+
+    const deviceMock = {
+      sendReport: async (reportId: number, data: Array<number>) => { /* mock implementation */ }
+    } as unknown as HIDDevice;
+
+    fixture.componentRef.setInput('hidDevice', deviceMock); // Mock HIDDevice input
     fixture.detectChanges();
   });
 
