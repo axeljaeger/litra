@@ -1,6 +1,7 @@
 name: 'Unittests'
 on:
-    pull_request:
+  pull_request:
+  push:
 permissions:
   contents: read
   actions: read
