@@ -39,7 +39,7 @@
     "@storybook/addon-links": "10.1.10",
     "@storybook/angular": "10.1.10",
     "chromatic": "13.3.4",
-    "jsdom": "^27.3.0",
+    "jsdom": "^27.4.0",
     "storybook": "10.1.10",
     "typescript": "5.9.3",
     "vitest": "^4.0.16"
