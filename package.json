@@ -42,7 +42,7 @@
     "jsdom": "^27.4.0",
     "storybook": "10.1.10",
     "typescript": "5.9.3",
-    "vitest": "^4.0.16"
+    "vitest": "^4.0.17"
   },
   "readme": "ERROR: No README data found!",
   "_id": "litra@0.0.0",
