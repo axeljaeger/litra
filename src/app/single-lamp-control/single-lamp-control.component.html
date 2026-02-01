@@ -6,18 +6,18 @@
       <mat-panel-description>
         <span class="brightnessLabel">{{ brightness() }}%</span>, T: {{ temperature() }}K
       </mat-panel-description>
-      <mat-slide-toggle [field]="onField" (click)="$event.stopPropagation()" [disableRipple]="true" />
+      <mat-slide-toggle [formField]="onField" (click)="$event.stopPropagation()" [disableRipple]="true" />
     </mat-expansion-panel-header>
     <div class="form">
     <span class="label">Brightness:</span>
     <mat-slider min="1" max="100">
-        <input matSliderThumb [field]="brightnessField">
+        <input matSliderThumb [formField]="brightnessField">
       </mat-slider>
       <span class="brightnessLabel">{{ brightness() }}%</span>
 
     <span class="label">Temperature:</span>
     <mat-slider min="2700" max="6500" step="100">
-        <input matSliderThumb [field]="temperatureField">
+        <input matSliderThumb [formField]="temperatureField">
     </mat-slider>
     <span class="label">{{ temperature() }}K</span>
   </div>

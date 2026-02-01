@@ -2,7 +2,7 @@ import { Component, effect, input, signal } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {form, Field} from '@angular/forms/signals';
+import {form, FormField} from '@angular/forms/signals';
 
 const onOffCommand = [0xff, 0x04, 0x1c] as const;
 const brightnessCommand = [0xff, 0x04, 0x4c] as const;
@@ -25,7 +25,7 @@ enum LampOnOffState {
         MatExpansionModule,
         MatSliderModule,
         MatSlideToggleModule,
-        Field,
+        FormField,
     ],
     templateUrl: './single-lamp-control.component.html',
     styleUrls: ['./single-lamp-control.component.scss']
