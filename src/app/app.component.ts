@@ -1,6 +1,6 @@
 /// <reference types="w3c-web-hid" />
 
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { SingleLampControlComponent } from './single-lamp-control/single-lamp-control.component';
 
@@ -15,13 +15,14 @@ export type AppState = 'HidNotSupported' | 'Idle' | 'Connecting' | 'Connected';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         WelcomePageComponent,
         SingleLampControlComponent
     ]
 })
 export class AppComponent {
-  protected appState = signal<AppState>(navigator.hid ? 'Idle' : 'HidNotSupported');
+  protected readonly appState = signal<AppState>(navigator.hid ? 'Idle' : 'HidNotSupported');
   protected version = version;
   protected devices: HIDDevice[] | null = null;
 
