@@ -14,6 +14,11 @@ module.exports = defineConfig([
       angular.configs.tsRecommended,
     ],
     processor: angular.processInlineTemplates,
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
+    },
     rules: {
       "@angular-eslint/directive-selector": [
         "error",
@@ -31,6 +36,13 @@ module.exports = defineConfig([
           style: "kebab-case",
         },
       ],
+      "@angular-eslint/prefer-signals": "error",
+      "@angular-eslint/prefer-output-emitter-ref": "error",
+      "@angular-eslint/prefer-output-readonly": "error",
+      "@angular-eslint/no-uncalled-signals": "error",
+      "@angular-eslint/prefer-on-push-component-change-detection": "error",
+      "@angular-eslint/no-async-lifecycle-method": "error",
+      "@angular-eslint/prefer-signal-model": "error",
     },
   },
   {

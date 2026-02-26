@@ -18,7 +18,7 @@ describe('SingleLampControlComponent', () => {
     component = fixture.componentInstance;
 
     const deviceMock = {
-      sendReport: async (reportId: number, data: Array<number>) => { /* mock implementation */ }
+      sendReport: async () => { /* mock implementation */ }
     } as unknown as HIDDevice;
 
     fixture.componentRef.setInput('hidDevice', deviceMock); // Mock HIDDevice input

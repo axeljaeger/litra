@@ -1,4 +1,4 @@
-import { Component, effect, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, input, signal } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -28,14 +28,15 @@ enum LampOnOffState {
         FormField,
     ],
     templateUrl: './single-lamp-control.component.html',
-    styleUrls: ['./single-lamp-control.component.scss']
+    styleUrls: ['./single-lamp-control.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SingleLampControlComponent {
-  hidDevice = input.required<HIDDevice>();  
+  readonly hidDevice = input.required<HIDDevice>();
 
-  on = signal<boolean>(false);
-  brightness = signal<number>(50);
-  temperature = signal<number>(2700);
+  readonly on = signal<boolean>(false);
+  readonly brightness = signal<number>(50);
+  readonly temperature = signal<number>(2700);
 
   onField = form(this.on);
   brightnessField = form(this.brightness);

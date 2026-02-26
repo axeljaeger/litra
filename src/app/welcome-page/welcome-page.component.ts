@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -13,10 +13,11 @@ import { AppState } from '../app.component';
     MatProgressBarModule
 ],
     templateUrl: './welcome-page.component.html',
-    styleUrls: ['./welcome-page.component.scss']
+    styleUrls: ['./welcome-page.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WelcomePageComponent {
-  public state = input<AppState>('Idle');
-  public unsupported = input(false);
-  public connect = output<void>();
+  public readonly state = input<AppState>('Idle');
+  public readonly unsupported = input(false);
+  public readonly connect = output<void>();
 }
