@@ -41,7 +41,7 @@
     "@storybook/addon-docs": "10.2.14",
     "@storybook/addon-links": "10.2.14",
     "@storybook/angular": "10.2.14",
-    "angular-eslint": "21.2.0",
+    "angular-eslint": "21.3.0",
     "chromatic": "15.2.0",
     "eslint": "^9.39.2",
     "jsdom": "^28.1.0",
