@@ -43,7 +43,7 @@
     "@storybook/angular": "10.2.19",
     "angular-eslint": "21.2.0",
     "chromatic": "15.3.0",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.3",
     "jsdom": "^28.1.0",
     "storybook": "10.2.19",
     "typescript": "5.9.3",
