@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
-import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { AppState } from '../app.component';
@@ -9,7 +8,6 @@ import { AppState } from '../app.component';
     selector: 'app-welcome-page',
     imports: [
     MatButtonModule,
-    MatCardModule,
     MatProgressBarModule
 ],
     templateUrl: './welcome-page.component.html',
