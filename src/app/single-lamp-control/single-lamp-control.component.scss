@@ -4,6 +4,10 @@
     font-variant-numeric: tabular-nums;
 }
 
+mat-slide-toggle {
+    grid-column: 1 / -1;
+}
+
 div.form {
     display: grid;
     grid-template-columns: min-content 1fr min-content;
