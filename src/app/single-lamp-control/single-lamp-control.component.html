@@ -1,24 +1,15 @@
-<mat-expansion-panel hideToggle expanded="true">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        LitraGlow
-      </mat-panel-title>
-      <mat-panel-description>
-        <span class="brightnessLabel">{{ brightness() }}%</span>, T: {{ temperature() }}K
-      </mat-panel-description>
-      <mat-slide-toggle [formField]="onField" (click)="$event.stopPropagation()" [disableRipple]="true" />
-    </mat-expansion-panel-header>
-    <div class="form">
-    <span class="label">Brightness:</span>
-    <mat-slider min="1" max="100">
-        <input matSliderThumb [formField]="brightnessField">
-      </mat-slider>
-      <span class="brightnessLabel">{{ brightness() }}%</span>
+<div class="form">
+  <mat-slide-toggle [formField]="onField" [disableRipple]="true" aria-label="Power" />
 
-    <span class="label">Temperature:</span>
-    <mat-slider min="2700" max="6500" step="100">
-        <input matSliderThumb [formField]="temperatureField">
-    </mat-slider>
-    <span class="label">{{ temperature() }}K</span>
-  </div>
-</mat-expansion-panel>
+  <span class="label">Brightness:</span>
+  <mat-slider min="1" max="100">
+      <input matSliderThumb [formField]="brightnessField">
+  </mat-slider>
+  <span class="brightnessLabel">{{ brightness() }}%</span>
+
+  <span class="label">Temperature:</span>
+  <mat-slider min="2700" max="6500" step="100">
+      <input matSliderThumb [formField]="temperatureField">
+  </mat-slider>
+  <span class="label">{{ temperature() }}K</span>
+</div>

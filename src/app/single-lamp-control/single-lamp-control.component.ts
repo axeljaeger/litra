@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, effect, input, signal } from '@angular/core';
-import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {form, FormField} from '@angular/forms/signals';
@@ -22,7 +21,6 @@ enum LampOnOffState {
 @Component({
     selector: 'app-single-lamp-control',
     imports: [
-        MatExpansionModule,
         MatSliderModule,
         MatSlideToggleModule,
         FormField,
