@@ -12,15 +12,15 @@ updates:
       day: "tuesday"
       time: "03:00"
     groups:
-      storybook:
+      frontend:
         patterns:
+            - "@biomejs/*"
             - "@storybook/*"
-            - "chromatic"
+            - "lit"
             - "storybook"
-      angular:
-        patterns:
-            - "@angular/*"
-            - "@angular-devkit/*"
+            - "vite"
+            - "vitest"
+            - "typescript"
 
   - package-ecosystem: "github-actions"
     directory: "/"

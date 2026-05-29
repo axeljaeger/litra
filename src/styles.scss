@@ -1,34 +1,28 @@
-@use '@angular/material' as mat;
 @import '@fontsource/inter/index.css';
 
-:root {
-  @include mat.expansion-overrides((
-    container-background-color: var(--mat-sys-surface-container-low),
-  ));
-  @include mat.slider-overrides((
-    inactive-track-color: var(--mat-sys-surface-container-low),
-  ));
-}
-
-html, body { height: 100% }
+html, body { height: 100%; }
 
 html {
   color-scheme: light dark;
-  @include mat.theme((
-    color: mat.$violet-palette,
-    typography: Inter,
-    density: 0
-  ));
+  font-family: Inter, system-ui, sans-serif;
 }
 
 body {
-  background: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  overflow: hidden;
+  margin: 0;
+  background: #f8fafc;
+  color: #0f172a;
+  overflow: auto;
 }
 
-a, a:visited, a:active, a:focus {
-  color: var(--mat-expansion-header-description-color, var(--mat-sys-on-surface-variant));
-  font: var(--mat-sys-body-medium);
-  text-decoration: none;
+body,
+button,
+input {
+  font: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #020617;
+    color: #e2e8f0;
+  }
 }

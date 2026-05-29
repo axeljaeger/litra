@@ -1,6 +1,6 @@
-name: 'Unittests'
+name: "Unittests"
 on:
-    pull_request:
+  pull_request:
 permissions:
   contents: read
   actions: read
@@ -10,18 +10,18 @@ jobs:
     name: Build & Test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6     # checkout the repo
-    - uses: actions/setup-node@v6
-      with:
-        node-version: 24
-        cache: 'npm'
-    - run: npm ci                   # install packages
-    - run: npm run test:ci          # run tests (configured to use jest-junit reporter)
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: "npm"
+      - run: npm ci
+      - run: npm run test:ci
 
-    - name: Test Report
-      uses: dorny/test-reporter@v3
-      if: ${{ !cancelled() }}       # run this step even if previous step failed
-      with:
-        name: Vitest Tests            # Name of the check run which will be created
-        path: test-results.xml    # Path to test results
-        reporter: jest-junit        # Format of test results
+      - name: Test Report
+        uses: dorny/test-reporter@v3
+        if: ${{ !cancelled() }} # run this step even if previous step failed
+        with:
+          name: Vitest Tests
+          path: test-results.xml
+          reporter: java-junit
