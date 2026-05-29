@@ -1,6 +1,6 @@
 name: Publish to Cloudflare Pages
 run-name: ${{ github.actor }} is publishing to Cloudflare Pages 🚀
-on: 
+on:
   release:
     types: [published]
 jobs:
@@ -20,12 +20,12 @@ jobs:
           echo "Set version to $CLEAN_TAG"
           npm version $CLEAN_TAG --git-tag-version=false
 
-      - name: Build Angular app
+      - name: Build app
         run: |
-          npx ng build --base-href https://litra.pages.dev/
+          npm run build
       - name: Upload to Cloudflare
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/litra/browser --project-name=litra --branch=main
+          command: pages deploy dist --project-name=litra --branch=main

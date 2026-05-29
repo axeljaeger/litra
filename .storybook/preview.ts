@@ -1,8 +1,13 @@
-import type { Preview } from "@storybook/angular";
+import type { Preview } from '@storybook/web-components-vite';
 
 const preview: Preview = {
-  initialGlobals: {
-    backgrounds: { value: 'dark' },
+  parameters: {
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/i,
+      },
+    },
   },
 };
 
