@@ -21,8 +21,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.3",
-    "@storybook/addon-docs": "^10.4.6",
-    "@storybook/web-components-vite": "^10.4.6",
+    "@storybook/addon-docs": "^10.5.2",
+    "@storybook/web-components-vite": "^10.5.2",
     "jsdom": "^29.1.1",
     "sass": "^1.101.0",
     "storybook": "^10.4.1",
