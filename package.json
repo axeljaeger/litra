@@ -20,7 +20,7 @@
     "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.2",
+    "@biomejs/biome": "^2.5.3",
     "@storybook/addon-docs": "^10.4.6",
     "@storybook/web-components-vite": "^10.4.6",
     "jsdom": "^29.1.1",
